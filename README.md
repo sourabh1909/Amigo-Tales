@@ -5,6 +5,26 @@
 
 ---
 
+## 📸 Screenshots & Demo
+
+### 1. Home Screen & Theme Selection
+Choose from curated adventure themes or enter your own custom universe.
+![Amigo Tales - Home Screen](docs/screenshots/home.png)
+
+### 2. Interactive Story Gameplay & Dynamic Choices
+Deep branching narrative paths with chapter tracking and real-time LLM continuations.
+![Amigo Tales - Story Gameplay](docs/screenshots/story_gameplay.png)
+
+### 3. Multilingual Ending Summary (Marathi - मराठी)
+Full adventure journey translated and summarized in authentic Marathi with Devanagari script.
+![Amigo Tales - Marathi Translation](docs/screenshots/marathi_translation.png)
+
+### 4. Multilingual Ending Summary (Hindi - हिंदी)
+Instant language switching to Hindi translation.
+![Amigo Tales - Hindi Translation](docs/screenshots/hindi_translation.png)
+
+---
+
 ## 🌟 Key Features
 
 - 🌲 **Dynamic Branching Narratives**: Stories develop dynamically up to 6 decision levels deep, offering unique branching paths based on player choices.
@@ -47,6 +67,8 @@ project_1/
 │   ├── .env.example       # Example environment variables template
 │   ├── main.py            # FastAPI application entrypoint
 │   └── pyproject.toml     # Backend dependencies
+├── docs/
+│   └── screenshots/       # Application UI screenshots for README
 ├── frontend/
 │   ├── src/
 │   │   ├── components/    # React UI components (Header, ThemeInput, StoryCard, EndingCard)
