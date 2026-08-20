@@ -57,6 +57,9 @@ dist/
 .vscode/
 *.swp
 *.swo
-*~
 .DS_Store
 Thumbs.db
+
+# Documentation Screenshots
+docs/screenshots/
+docs/screenshots
