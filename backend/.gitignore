@@ -1,0 +1,19 @@
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+
+# Databases
+*.db
+*.sqlite
+database.db

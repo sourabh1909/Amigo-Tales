@@ -1,0 +1,308 @@
+/* Nordic Design System - Main Stylesheet */
+
+:root {
+  /* Nordic Palette */
+  --nordic-bg: #F7F5F0;             /* Warm Linen Off-White */
+  --nordic-card: #FFFFFF;           /* Pure Soft White Card */
+  --nordic-card-subtle: #FAF8F5;    /* Subtle Parchment Fill */
+  
+  --nordic-text-main: #1F2937;      /* Dark Timber / Charcoal */
+  --nordic-text-title: #1E293B;     /* Deep Slate Navy Title */
+  --nordic-text-subtle: #4B5563;    /* Granite Gray */
+  --nordic-text-muted: #9CA3AF;     /* Muted Slate */
+
+  /* Accents */
+  --nordic-sage: #4A6B5D;           /* Scandinavian Sage Green */
+  --nordic-sage-hover: #3D5A4E;
+  --nordic-sage-light: #EBF1ED;
+  
+  --nordic-sand: #EFECE6;           /* Birch Sand */
+  --nordic-sand-hover: #E3DDD3;
+  --nordic-sand-dark: #D4CCC0;
+  
+  --nordic-border: #E2E8F0;         /* Subtle Stone Border */
+  --nordic-focus: #4A6B5D;
+
+  /* Typography */
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Radii & Elevation */
+  --radius-card: 20px;
+  --radius-btn: 12px;
+  --radius-pill: 9999px;
+  --shadow-nordic: 0 10px 30px -5px rgba(31, 41, 55, 0.04), 0 4px 12px -2px rgba(31, 41, 55, 0.02);
+  --shadow-hover: 0 16px 40px -6px rgba(31, 41, 55, 0.08), 0 6px 16px -3px rgba(31, 41, 55, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--nordic-bg);
+  color: var(--nordic-text-main);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  width: 100%;
+}
+
+/* Nordic Card */
+.nordic-card {
+  background-color: var(--nordic-card);
+  border: 1px solid var(--nordic-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-nordic);
+  padding: 40px 48px;
+  transition: all 0.3s ease;
+}
+
+.nordic-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Nordic Inputs */
+.nordic-input {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--nordic-border);
+  background-color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--nordic-text-main);
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.015);
+}
+
+.nordic-input::placeholder {
+  color: var(--nordic-text-muted);
+}
+
+.nordic-input:focus {
+  border-color: var(--nordic-sage);
+  box-shadow: 0 0 0 3px var(--nordic-sage-light);
+}
+
+/* Nordic Buttons */
+.btn-nordic-primary {
+  background-color: var(--nordic-sage);
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-nordic-primary:hover:not(:disabled) {
+  background-color: var(--nordic-sage-hover);
+  transform: translateY(-1px);
+}
+
+.btn-nordic-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-nordic-secondary {
+  background-color: var(--nordic-sand);
+  color: var(--nordic-text-main);
+  border: 1px solid var(--nordic-border);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-nordic-secondary:hover {
+  background-color: var(--nordic-sand-hover);
+  border-color: var(--nordic-sand-dark);
+}
+
+/* Nordic Option Choice Card - V2 Grid */
+.nordic-option-card-v2 {
+  width: 100%;
+  background-color: var(--nordic-card);
+  border: 1.5px solid var(--nordic-border);
+  border-radius: 16px;
+  padding: 20px 22px;
+  text-align: left;
+  font-family: var(--font-sans);
+  color: var(--nordic-text-main);
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  animation: optionSlideIn 0.4s ease forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.nordic-option-card-v2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(74, 107, 93, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.nordic-option-card-v2:hover::before {
+  opacity: 1;
+}
+
+/* Legacy Option Card (kept for backward compat) */
+.nordic-option-card {
+  width: 100%;
+  background-color: var(--nordic-sand);
+  border: 1px solid var(--nordic-border);
+  border-radius: var(--radius-btn);
+  padding: 18px 24px;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  color: var(--nordic-text-main);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.nordic-option-card:hover {
+  background-color: var(--nordic-sand-hover);
+  border-color: var(--nordic-sage);
+  transform: translateY(-1px);
+}
+
+/* Preset Tag Chips */
+.nordic-chip {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background-color: #FFFFFF;
+  border: 1px solid var(--nordic-border);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--nordic-text-subtle);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nordic-chip:hover {
+  background-color: var(--nordic-sand);
+  color: var(--nordic-text-main);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes optionSlideIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulseGentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+.animate-pulse-gentle {
+  animation: pulseGentle 2s ease-in-out infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 3s linear infinite;
+}
+
+/* Translation Action Cards */
+.nordic-trans-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.nordic-trans-card:hover {
+  border-color: var(--nordic-sage) !important;
+  background-color: var(--nordic-sage-light) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(74, 107, 93, 0.15);
+}
+
+/* Chronicle Chapter Card */
+.chronicle-chapter-card {
+  transition: all 0.25s ease;
+}
+
+.chronicle-chapter-card:hover {
+  transform: translateY(-1px);
+}
+
+.chronicle-lang-btn:hover:not(:disabled) {
+  border-color: var(--nordic-sage) !important;
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    padding: 24px 16px;
+  }
+  
+  .nordic-card {
+    padding: 24px 20px;
+  }
+  
+  .nordic-option-card-v2 {
+    padding: 16px 18px;
+  }
+
+  .chronicle-chapter-card {
+    padding: 20px 18px !important;
+  }
+}
+
+
